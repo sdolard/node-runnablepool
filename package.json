@@ -1,0 +1,25 @@
+{
+	"name": "node-pworker",
+	"version": "0.0.0",
+	"description": "A worker pool manager lib",
+	"main": "lib/pwroker.js",
+	"scripts": {
+		"pretest": "jsrevival -o \"properties: false, maxlen: 0\" -r cli-hide-valid -R lib/ test/"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/sdolard/node-pworker.git"
+	},
+	"keywords": [
+		"worker"
+	],
+	"author": "sebastien.dolard@gmail.com",
+	"dependencies": {
+		"vows": "0.6.x",
+		"jsrevival": "0.0.x"
+	},
+	"engines": {
+		"node": ">= 0.8.0"
+	},
+	"license": "BSD"
+}
