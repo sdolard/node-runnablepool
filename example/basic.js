@@ -2,9 +2,7 @@ var
 i = 0,
 wp = require('../lib/worker_pool'),
 pool = new wp.WorkerPool({
-		//maxWorkers: 1,
-		workerFile: './basic_runnable.js',
-		verbose: false
+		modulePath: './basic_runnable.js'
 });
 pool.on('result', function(err, result) {
 		if (err) {
@@ -13,6 +11,6 @@ pool.on('result', function(err, result) {
 		console.log(result);
 });
 
-for(i = 0; i < 100000; i++) {
+for(i = 0; i < 10000; i++) {
 	pool.run();
 }
