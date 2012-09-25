@@ -1,4 +1,4 @@
-node-pworker
+node-runnablepool
 ============
 
-node pool worker lib
+node pool runnable lib

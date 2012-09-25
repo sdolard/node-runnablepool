@@ -1,8 +1,8 @@
 {
-	"name": "node-pworker",
+	"name": "node-runnablepool",
 	"version": "0.0.0",
 	"description": "A worker pool manager lib",
-	"main": "lib/pwroker.js",
+	"main": "lib/runnablepool.js",
 	"scripts": {
 		"pretest": "jsrevival -o \"properties: false, maxlen: 0\" -r cli-hide-valid -R lib/ example/"
 	},
