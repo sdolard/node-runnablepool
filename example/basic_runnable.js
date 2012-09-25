@@ -6,6 +6,7 @@ run,
 BasicRunnable = (function () {
 		
 		function BasicRunnable () {
+			this.verbose = false;
 			runnable.Runnable.call(this);
 		}
 		util.inherits(BasicRunnable, runnable.Runnable);
@@ -19,4 +20,3 @@ BasicRunnable = (function () {
 
 
 run = new BasicRunnable();
-run._run();
