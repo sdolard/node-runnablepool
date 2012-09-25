@@ -1,5 +1,5 @@
 {
-	"name": "node-runnablepool",
+	"name": "runnablepool",
 	"version": "0.0.0",
 	"description": "A worker pool manager lib",
 	"main": "lib/runnablepool.js",
