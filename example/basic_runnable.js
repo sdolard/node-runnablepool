@@ -1,15 +1,15 @@
 
 var
 util = require('util'),
-runnable = require('../lib/runnable'),
+rp = require('../lib/runnablepool'),
 run,
 BasicRunnable = (function () {
 		
 		function BasicRunnable () {
 			this.verbose = false;
-			runnable.Runnable.call(this);
+			rp.Runnable.call(this);
 		}
-		util.inherits(BasicRunnable, runnable.Runnable);
+		util.inherits(BasicRunnable, rp.Runnable);
 		
 		BasicRunnable.prototype.run = function(config, callback){
 			callback('BasicRunnable run');

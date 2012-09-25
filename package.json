@@ -1,7 +1,7 @@
 {
 	"name": "runnablepool",
 	"version": "0.0.0",
-	"description": "A worker pool manager lib",
+	"description": "A runnable pool manager lib",
 	"main": "lib/runnablepool.js",
 	"scripts": {
 		"pretest": "jsrevival -o \"properties: false, maxlen: 0\" -r cli-hide-valid -R lib/ example/"
@@ -11,7 +11,7 @@
 		"url": "git://github.com/sdolard/node-runnablepool.git"
 	},
 	"keywords": [
-		"worker"
+		"pool", "runnable"
 	],
 	"author": "sebastien.dolard@gmail.com",
 	"dependencies": {
