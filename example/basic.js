@@ -13,7 +13,7 @@ pool.on('result', function(pid, err, result) {
 			}
 			return console.log(util.format('pid: %d > Error : ', pid, err.message));
 		}
-		console.log(result[0]);
+		console.log(result);
 });
 
 pool.on('end', function(runnables) {
