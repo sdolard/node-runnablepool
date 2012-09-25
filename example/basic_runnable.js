@@ -2,7 +2,6 @@
 var
 util = require('util'),
 rp = require('../lib/runnablepool'),
-run,
 BasicRunnable = (function () {
 		
 		function BasicRunnable () {
@@ -16,7 +15,5 @@ BasicRunnable = (function () {
 		};
 	
 		return BasicRunnable;
-}());
-
-
+}()),
 run = new BasicRunnable();
