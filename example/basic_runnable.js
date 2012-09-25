@@ -19,3 +19,4 @@ BasicRunnable = (function () {
 
 
 run = new BasicRunnable();
+run._run();
