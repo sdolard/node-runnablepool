@@ -1,6 +1,6 @@
 {
 	"name": "runnablepool",
-	"version": "0.0.0",
+	"version": "0.0.2",
 	"description": "A runnable pool manager lib",
 	"main": "lib/runnablepool.js",
 	"scripts": {
