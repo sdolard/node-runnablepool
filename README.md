@@ -5,7 +5,6 @@ An easy way to use multi proc with node.
 https://npmjs.org/package/runnablepool
 
 
-
 ### Installing runnablepool
 
 ```
@@ -15,6 +14,8 @@ https://npmjs.org/package/runnablepool
 
 ## Usage
 ### Lib: inherits from Runnable class. 
+Create a dedicated file to run the Runnable instance. 
+See examples/basic_runnable.js
 ```javascript
 var
 util = require('util'),
@@ -46,7 +47,7 @@ util = require('util'),
 i = 0,
 rp = require('../lib/runnablepool'),
 pool = new rp.RunnablePool({
-		modulePath: './basic_runnable.js'
+		modulePath: './basic_runnable.js' 
 });
 pool.on('result', function(pid, err, result) {
 		if (err) {
@@ -77,7 +78,7 @@ for(i = 0; i < 2000; i++) {
 
 
 ## Debug
-### Juste call run.run() 
+### Just call run.run() 
 ```javascript
 var
 util = require('util'),
@@ -93,6 +94,32 @@ run.run(); // do forget to remove it once you are done !
 ### Run it as usual
 node basic_runnable.js
 
+
+## Classes
+### RunnablePool
+```javascript		
+/**
+* @constructor
+* @param {number} maxRunnables: max proc to use. Default to os.cpus().length
+* @param {String} config.modulePath: module path see child_process.fork params
+* @param {Array} config.args: see child_process.fork params
+* @param {Object} config.options: see child_process.fork params
+* @param {Boolean} config.verbose: verbose mode. Default to false
+* Emit 'result' function({Number} pid, {Error || undefined} err, {Mixed} result) for each results
+* Emit 'end' function({Array of {{Number} pid, {Number} runCount }} runnables) once all results are done
+* Emit 'error' function({Error} error})
+*/
+function RunnablePool (config)
+
+
+/**
+* @public
+* @param {Mixed} config to pass to runnable script
+* This method fill the pooler
+*/
+Runnable.prototype.run = function(config)
+		
+```
 
 ## License
 node-runnablepool is licensed under the MIT license.
