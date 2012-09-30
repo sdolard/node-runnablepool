@@ -1,4 +1,3 @@
-
 var
 util = require('util'),
 rp = require('../lib/runnablepool'),
@@ -11,6 +10,8 @@ BasicRunnable = (function () {
 		util.inherits(BasicRunnable, rp.Runnable);
 		
 		BasicRunnable.prototype.run = function(config, callback){
+			// Do you stuff here.
+			// Once you done, just call callback function with results as params
 			callback('BasicRunnable run');
 		};
 	
