@@ -3,8 +3,6 @@ util = require('util'),
 i = 0,
 rp = require('../lib/runnablepool'),
 pool = new rp.RunnablePool({
-		timeout: 2,
-		verbose: true,
 		modulePath: './basic_runnable.js' // Here is our Runnable script
 });
 pool.on('result', function(pid, err, result) {
@@ -29,6 +27,6 @@ pool.on('error', function(error) {
 		console.log(error.message);
 });
 
-for(i = 0; i < 4; i++) {
+for(i = 0; i < 1000; i++) {
 	pool.run();
 }
