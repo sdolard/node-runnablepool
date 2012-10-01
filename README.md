@@ -100,7 +100,7 @@ node basic_runnable.js
 ```javascript		
 /**
 * @constructor
-* @param {number} maxRunnables: max proc to use. Default to os.cpus().length
+* @param {number} config.maxRunnables: max proc to use. Default to os.cpus().length
 * @param {String} config.modulePath: module path see child_process.fork params
 * @param {Array} config.args: see child_process.fork params
 * @param {Object} config.options: see child_process.fork params
