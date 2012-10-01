@@ -105,6 +105,7 @@ node basic_runnable.js
 * @param {Array} config.args: see child_process.fork params
 * @param {Object} config.options: see child_process.fork params
 * @param {Boolean} config.verbose: verbose mode. Default to false
+* @param {Number} config.timeout: time in seconds to wait for a result before killing process. Default to 30
 * Emit 'result' function({Number} pid, {Error || undefined} err, {Mixed} result) for each results
 * Emit 'end' function({Array of {{Number} pid, {Number} runCount }} runnables) once all results are done
 * Emit 'error' function({Error} error})
