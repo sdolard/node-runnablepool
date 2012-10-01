@@ -3,7 +3,7 @@ util = require('util'),
 i = 0,
 rp = require('../lib/runnablepool'),
 pool = new rp.RunnablePool({
-		modulePath: './basic_runnable.js' // Here is our Runnable script
+		modulePath: __dirname + '/basic_runnable.js' // Here is our Runnable script
 });
 pool.on('result', function(pid, err, result) {
 		if (err) {
