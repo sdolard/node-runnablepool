@@ -182,7 +182,7 @@ addBatch({
 				});
 				assert.equal(runCount, 100);
 			},
-			'All cpu is used': function (runnables, err) {
+			'All cpu were used': function (runnables, err) {
 				assert.equal(runnables.length, os.cpus().length);
 			}
 		}
@@ -205,7 +205,7 @@ addBatch({
 				assert.isNotNull(pid);
 				assert.isNotNull(result);
 			},
-			'Exception message is correspond': function (pid, result) {
+			'Exception message correspond': function (pid, result) {
 				assert.equal(result.message, 'test runnable exception');
 			},
 			'Stack is join to result': function (pid, result) {
