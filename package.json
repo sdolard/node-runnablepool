@@ -4,7 +4,7 @@
 	"description": "A runnable pool manager lib",
 	"main": "lib/runnablepool.js",
 	"scripts": {
-		"pretest": "jsrevival -o \"properties: false, maxlen: 0\" -r cli-hide-valid -R lib/ example/",
+		"pretest": "jsrevival -o \"properties: false, maxlen: 0\" -r cli-hide-valid -R lib/ example/ test/",
 		"test": "vows --spec test/vows_*"
 	},
 	"repository": {
