@@ -8,7 +8,6 @@ os = require('os'),
 rp = require('../lib/runnablepool'),
 BATCH_RESULT_COUNT = 0,
 BATCH_ERROR_COUNT = 0;
-
 exports.suite1 = vows.describe('runnablepool').
 addBatch({
 		'When running a runnable 100 times with default config': {
@@ -58,7 +57,7 @@ addBatch({
 				pool.on('result', this.callback);
 				pool.run();
 			},
-			'It received 1 result': function (pid, result) {
+			'It received 1 result': function (pid, err, result) {
 				assert.isNotNull(pid);
 				assert.isNotNull(result);
 			},
@@ -197,7 +196,7 @@ addBatch({
 						modulePath: __dirname + '/test_runnable_exception.js'
 				});
 				pool.on('result', this.callback);
-				for (i = 0; i < 100; i++) {
+				for (i = 0; i < 1; i++) {
 					pool.run();
 				}
 			},
@@ -210,6 +209,62 @@ addBatch({
 			},
 			'Stack is join to result': function (pid, result) {
 				assert.isNotNull(result.stack);
+			}
+		}
+}).
+addBatch({
+		'When running a runnable 1 time with a number as params': {
+			topic: function () {
+				BATCH_RESULT_COUNT = 0;
+				BATCH_ERROR_COUNT = 0;
+				var 
+				i = 0, 
+				pool = new rp.RunnablePool({
+						modulePath: __dirname + '/test_runnable_params.js'
+				});
+				pool.on('result', this.callback);
+				pool.run(666);
+			},
+			'Result is valid': function (pid, err, result) {
+				assert.equal(result, 666);
+			}
+		}
+}).
+addBatch({
+		'When running a runnable 1 time with a string as params': {
+			topic: function () {
+				BATCH_RESULT_COUNT = 0;
+				BATCH_ERROR_COUNT = 0;
+				var 
+				i = 0, 
+				pool = new rp.RunnablePool({
+						modulePath: __dirname + '/test_runnable_params.js'
+				});
+				pool.on('result', this.callback);
+				pool.run('test');
+			},
+			'Result is valid': function (pid, err, result) {
+				assert.equal(result, 'test');
+			}
+		}
+}).
+addBatch({
+		'When running a runnable 1 time with an Object as params': {
+			topic: function () {
+				BATCH_RESULT_COUNT = 0;
+				BATCH_ERROR_COUNT = 0;
+				var 
+				i = 0, 
+				pool = new rp.RunnablePool({
+						modulePath: __dirname + '/test_runnable_params.js'
+				});
+				pool.on('result', this.callback);
+				pool.run({
+					foo: 'bar'
+				});
+			},
+			'Result is valid': function (pid, err, result) {
+				assert.strictEqual(result.foo, 'bar');
 			}
 		}
 });
