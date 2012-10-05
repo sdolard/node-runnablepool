@@ -249,22 +249,22 @@ addBatch({
 		}
 }).
 addBatch({
-		'When running a runnable 1 time with an Object as params': {
+		'When running a runnable 1 time with args option': {
 			topic: function () {
 				BATCH_RESULT_COUNT = 0;
 				BATCH_ERROR_COUNT = 0;
 				var 
 				i = 0, 
 				pool = new rp.RunnablePool({
-						modulePath: __dirname + '/test_runnable_params.js'
+						modulePath: __dirname + '/test_runnable_args.js',
+						args: ['foo', 'bar']  
 				});
 				pool.on('result', this.callback);
-				pool.run({
-					foo: 'bar'
-				});
+				pool.run();
 			},
 			'Result is valid': function (pid, err, result) {
-				assert.strictEqual(result.foo, 'bar');
+				assert.include(result, 'foo');
+				assert.include(result, 'bar');
 			}
 		}
 });
