@@ -1,6 +1,6 @@
 {
 	"name": "runnablepool",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "Runnable pool manager lib: an easy way to use multi proc with node",
 	"main": "lib/runnablepool.js",
 	"scripts": {

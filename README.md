@@ -58,6 +58,8 @@ pool.on('result', function(pid, err, result) {
 			return console.log(util.format('pid: %d > Error : ', pid, err.message));
 		}
 		console.log(result);
+		// call pool.abort() if you do no need all other result.
+		// this will interrupt the pooler.
 });
 
 pool.on('end', function(runnables) {

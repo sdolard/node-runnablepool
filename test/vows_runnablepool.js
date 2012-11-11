@@ -267,4 +267,42 @@ addBatch({
 				assert.include(result, 'bar');
 			}
 		}
+}).
+addBatch({
+		'When running a runnable 100 and aborting at first result': {
+			topic: function () {
+				BATCH_RESULT_COUNT = 0;
+				BATCH_ERROR_COUNT = 0;
+				var 
+				i = 0, 
+				pool = new rp.RunnablePool({
+						modulePath: __dirname + '/test_runnable.js'
+				});
+				pool.on('result', function() {
+						BATCH_RESULT_COUNT++;
+						pool.abort();
+				});
+				pool.on('error', function() {
+						BATCH_ERROR_COUNT++;
+				});
+				pool.on('end', this.callback);
+				for (i = 0; i < 100; i++) {
+					pool.run();
+				}
+			},
+			'It not received 100 results': function (runnables, err) {
+				assert.notEqual(BATCH_RESULT_COUNT, 100);
+			},
+			
+			'It not has been run 100 times': function (runnables, err) {
+				var runCount = 0;
+				runnables.forEach(function(item) {
+						runCount += item.runCount;
+				});
+				assert.notEqual(runCount, 100);
+			},
+			'It received 0 error': function (runnables, err) {
+				assert.equal(BATCH_ERROR_COUNT, 0);
+			}
+		}
 });
