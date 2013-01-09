@@ -1,5 +1,5 @@
 # node-runnablepool [![Build Status](https://secure.travis-ci.org/sdolard/node-runnablepool.png?branch=master)](http://travis-ci.org/sdolard/node-runnablepool)
-A runnable (fork) pool lib.
+A runnable (spawn) pool lib.
 An easy way to use multi proc with node.
 
 https://npmjs.org/package/runnablepool
@@ -37,7 +37,7 @@ BasicRunnable = (function () {
 	
 		return BasicRunnable;
 }()),
-run = new BasicRunnable();
+run = new BasicRunnable(); // class must be instanciated: it's got interfaces to be managed by the pooler.
 
 ```
 

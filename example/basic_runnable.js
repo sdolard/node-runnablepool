@@ -17,4 +17,4 @@ BasicRunnable = (function () {
 	
 		return BasicRunnable;
 }()),
-run = new BasicRunnable();
+run = new BasicRunnable(); // class must be instanciated: it's got interfaces to be managed by the pooler.
