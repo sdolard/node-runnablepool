@@ -10,6 +10,7 @@ TestRunnable = (function () {
 		util.inherits(TestRunnable, rp.Runnable);
 
 		TestRunnable.prototype.run = function(config, callback){
+			/*jslint unparam: true */
 			callback(process.argv);
 		};
 

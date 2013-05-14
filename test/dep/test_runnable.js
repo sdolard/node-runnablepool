@@ -10,6 +10,7 @@ TestRunnable = (function () {
 		util.inherits(TestRunnable, rp.Runnable);
 
 		TestRunnable.prototype.run = function(config, callback){
+			/*jslint unparam: true */
 			// Do you stuff here.
 			// Once you done, just call callback function with results as params
 			callback('TestRunnable run');

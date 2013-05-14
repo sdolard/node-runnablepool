@@ -1,10 +1,10 @@
 {
 	"name": "runnablepool",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"description": "Runnable pool manager lib: an easy way to use multi proc with node",
 	"main": "lib/runnablepool.js",
 	"scripts": {
-		"pretest": "jsrevival -o \"properties: false, maxlen: 0\" -r cli-hide-valid -R lib/ example/ test/",
+		"pretest": "jsrevival -o \"properties: false, unparam: false, ass: false, passfail: false\"  -p \"describe, it\" -r cli-hide-valid -R lib/ example/ test/",
 		"test": "mocha -R spec"
 	},
 	"repository": {
@@ -17,7 +17,7 @@
 	"author": "sebastien.dolard@gmail.com",
 	"devDependencies": {
 		"mocha": "1.8.x",
-		"jsrevival": "0.1.x"
+		"jsrevival": "0.2.x"
 	},
 	"engines": {
 		"node": ">= 0.8.0"

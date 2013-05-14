@@ -3,8 +3,12 @@ assert = require('assert'),
 util = require('util'),
 path = require('path'),
 os = require('os'),
-
 RunnablePool = require('../lib/runnablepool').RunnablePool;
+
+
+/*jslint
+	unparam: true
+*/
 
 describe('runnablepool', function () {
 	describe('100 runs', function() {
